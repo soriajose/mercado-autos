@@ -1,0 +1,130 @@
+/* styles.css o component.css */
+
+body {
+  background-color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.main-card {
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container mat-form-field {
+  flex-grow: 1;
+}
+
+.search-container button {
+  margin-left: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.average-prices {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.promedio {
+  color: #007bff;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100px; /* Altura mínima para que se vea bien */
+  }
+
+
+
+  .promedios-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .promedio-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+  }
+  
+  .promedio-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .promedio-card-content.mat-card {
+    background-color: #f5f5f5;
+  }
+  
+  .promedio-text {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .promedio-text h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .promedio-text p {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  
+
+
+  /* home.component.css */
+.titulo {
+  font-size: 2.5em; /* Aumenta el tamaño de la fuente */
+  font-weight: 600; /* Hace la fuente un poco más gruesa */
+  color: #333; /* Color de texto más oscuro */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px; /* Agrega un margen inferior */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  position: relative; /* Para el efecto de línea */
+  padding-bottom: 10px; /* Espacio para la línea */
+}
