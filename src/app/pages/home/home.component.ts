@@ -55,25 +55,24 @@ export class HomeComponent {
   buscarAutos(query: string) {
     this.isLoading = true;
 
-    this.apiService.getAutos(query).subscribe(
-      (data: any) => {
-      
+    this.apiService.getAutos(query).subscribe({
+      next: value => {
+
         this.isLoading = false;
-        this.autos = data.results.slice(0, 10);
+        this.autos = value.results.slice(0, 10);
         this.dataSource.data = this.autos; 
 
         const preciosARS = this.autos.filter(a => a.currency_id === "ARS").map(a => a.price);
         const preciosUSD = this.autos.filter(a => a.currency_id === "USD").map(a => a.price);
 
-        // Calcular promedio
         this.promedioARS = preciosARS.length ? (preciosARS.reduce((acc, precio) => acc + precio, 0) / preciosARS.length) : 0;
         this.promedioUSD = preciosUSD.length ? (preciosUSD.reduce((acc, precio) => acc + precio, 0) / preciosUSD.length) : 0;
-      },
-      (error) => {
+        
+      }, error: err => {
         this.isLoading = false;
         this.errorMessage = 'Error al obtener los autos';
       }
-    );
+    });
   }
 
 
@@ -95,20 +94,20 @@ export class HomeComponent {
     }
   
     this.autos = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
+      const asc = sort.direction === 'asc';
       switch (sort.active) {
         case 'precio':
-          return this.compare(a.price, b.price, isAsc);
+          return this.compare(a.price, b.price, asc);
         case 'kilometraje':
-          return this.compare(this.getKilometraje(a), this.getKilometraje(b), isAsc);
+          return this.compare(this.getKilometraje(a), this.getKilometraje(b), asc);
         default:
           return 0;
       }
     });
   }
   
-  compare(a: Number | Date | string, b: Number | Date | string, isAsc: boolean) {
-    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  compare(a: Number | Date | string, b: Number | Date | string, asc: boolean) {
+    return (a < b ? -1 : 1) * (asc ? 1 : -1);
   }
   
 
